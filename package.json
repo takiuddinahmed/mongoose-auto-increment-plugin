@@ -1,5 +1,5 @@
 {
-  "name": "mongoose-auto-increment",
+  "name": "mongoose-auto-increment-plugin",
   "version": "1.0.0",
   "description": "It is a mongoose plugin to set a property will be incremented automatically.",
   "main": "dist/index.js",
