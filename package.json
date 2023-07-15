@@ -1,0 +1,28 @@
+{
+  "name": "mongoose-auto-increment",
+  "version": "1.0.0",
+  "description": "It is a mongoose plugin to set a property will be incremented automatically.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "files": [
+    "/dist"
+  ],
+  "keywords": [
+    "mongoose",
+    "plugin",
+    "auto-increment",
+    "mongodb"
+  ],
+  "author": "Takiuddin Ahmed",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.3",
+    "jest": "^29.6.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6"
+  }
+}
