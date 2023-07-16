@@ -20,9 +20,9 @@
   "author": "Takiuddin Ahmed <taki1502106@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/takiuddinahmed/mongoose-auto-increment.git"
+    "url": "git+https://github.com/takiuddinahmed/mongoose-auto-increment-plugin.git"
   },
-  "homepage": "https://github.com/takiuddinahmed/mongoose-auto-increment.git#readme",
+  "homepage": "https://github.com/takiuddinahmed/mongoose-auto-increment-plugin.git#readme",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.5.3",
