@@ -134,6 +134,7 @@ describe("Integration test", () => {
     expect(accessError.ticketNo).toBe(2020);
     expect(accessError.inquiryNo).toBe(2);
   }, 30000);
+
   it("Multiple auto increment where both  initial value and manual step ", async () => {
     const InquirySchema = new Schema({
       title: String,
@@ -168,6 +169,49 @@ describe("Integration test", () => {
     expect(accessError.ticketNo).toBe(2020);
     expect(accessError.inquiryNo).toBe(14);
   }, 30000);
+
+  it("should not change after update ", async () => {
+    const InquirySchema = new Schema({
+      title: String,
+      inquiryNo: {
+        type: Number,
+        autoIncrement: true,
+      },
+    });
+
+    InquirySchema.plugin(autoIncrementPlugin);
+
+    const InquiryModel = mongoose.model("inquiry", InquirySchema, "inquiry");
+
+    await InquiryModel.deleteMany({});
+
+    const loginError = await InquiryModel.create({ title: "login error" });
+    const logoutError = await InquiryModel.create({ title: "logout error" });
+    const accessError = await InquiryModel.create({ title: "access error" });
+
+    await loginError.updateOne({ title: "login error updated" });
+    await InquiryModel.findByIdAndUpdate(logoutError._id.toString(), {
+      title: "logout error updated",
+    });
+    await InquiryModel.updateOne(
+      { _id: accessError._id.toString() },
+      { title: "access error updated" }
+    );
+
+    const newLoginError = await InquiryModel.findById(
+      loginError._id.toString()
+    );
+    const newLogoutError = await InquiryModel.findById(
+      logoutError._id.toString()
+    );
+    const newAccessError = await InquiryModel.findById(
+      accessError._id.toString()
+    );
+    expect(newLoginError?.inquiryNo).toBe(0);
+    expect(newLogoutError?.inquiryNo).toBe(1);
+    expect(newAccessError?.inquiryNo).toBe(2);
+  }, 30000);
+
   it("Should not auto increment due to typing", async () => {
     const InquirySchema = new Schema({
       title: String,
