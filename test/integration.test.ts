@@ -5,16 +5,19 @@ import mongoose, { Model, Schema, model } from "mongoose";
 const modelName = "inquiry";
 
 describe("Integration test", () => {
+  let mongod: MongoMemoryServer | undefined;
   beforeAll(async () => {
-    await mongoose.connect("mongodb://localhost:27017/auto-increment");
+    mongod = await MongoMemoryServer.create();
+    await mongoose.connect(mongod.getUri());
   });
 
   afterEach(async () => {
     mongoose.connection.deleteModel(modelName);
   });
 
-  afterAll(() => {
+  afterAll(async () => {
     mongoose.disconnect();
+    await mongod?.stop();
   });
 
   it("Should auto increment ticketNo value", async () => {
