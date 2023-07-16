@@ -17,7 +17,12 @@
     "auto-increment",
     "mongodb"
   ],
-  "author": "Takiuddin Ahmed",
+  "author": "Takiuddin Ahmed <taki1502106@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takiuddinahmed/mongoose-auto-increment.git"
+  },
+  "homepage": "https://github.com/takiuddinahmed/mongoose-auto-increment.git#readme",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.5.3",
