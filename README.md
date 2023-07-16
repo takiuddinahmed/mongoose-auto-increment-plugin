@@ -1,4 +1,4 @@
-# Mongoose Auto Increment
+# Mongoose Auto Increment Plugin
 
 The Mongoose Auto Increment Plugin is a powerful tool that simplifies the generation of auto-incrementing IDs or numbers in MongoDB using Mongoose. This plugin integrates with Mongoose, allowing you to easily enhance your schemas with automatic ID or number generation capabilities.
 
